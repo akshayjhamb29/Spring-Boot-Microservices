@@ -17,12 +17,10 @@ public class RatingsController {
     }
 
     @RequestMapping("users/{userId}")
-    public List<Rating> getUserRating(@PathVariable("userId") String userId){
+    public UserRating getUserRating(@PathVariable("userId") String userId){
 
-        List<Rating> ratings = Arrays.asList(
-                new Rating("1234",5),
-                new Rating("5678",4)
-        );
-        return ratings;
+        UserRating userRating = new UserRating();
+        userRating.initData(userId);
+        return userRating;
     }
 }
